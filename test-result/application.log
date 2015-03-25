@@ -1,0 +1,5 @@
+07 Aug 2014 19:26:07,383 INFO  ~ Starting C:\playframework\blog
+07 Aug 2014 19:26:07,396 WARN  ~ Declaring modules in application.conf is deprecated. Use dependencies.yml instead (module.crud)
+07 Aug 2014 19:26:07,606 INFO  ~ Module crud is available (C:\playframework\modules\crud)
+07 Aug 2014 19:26:09,655 WARN  ~ You're running Play! in DEV mode
+07 Aug 2014 19:26:09,779 INFO  ~ Listening for HTTP on port 9000 (Waiting a first request to start) ...

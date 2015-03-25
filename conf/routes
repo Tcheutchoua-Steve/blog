@@ -1,0 +1,54 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# Home page
+GET     /                                       Application.index2
+
+# Adding a new Entry
+POST	/										Application.addEntry
+
+# Ignore favicon requests
+GET     /favicon.ico                            404
+
+# Map static resources from the /app/public folder to the /public path
+GET     /public/                                staticDir:public
+
+# Catch all
+*       /{controller}/{action}                  {controller}.{action}
+
+#From Add Entry
+
+
+# Modification of show url
+
+GET		/posts/{id} 							Application.show
+
+POST	/post/{postId}/comments					Application.postComment
+
+GET		/captcha								Application.captcha
+
+
+
+GET     /posts/{<[0-9]+>id}             		Application.show
+GET     /posts/{tag}                    		Application.listTagged
+GET     /posts/{tag}                   	 		Application.listTagged
+
+# Import CRUD routes
+*      	/admin              					module:crud
+
+# Import Secure routes
+*       /                                       module:secure
+
+# Administration
+GET     /admin/?                                Admin.index
+*       /admin                                  module:crud
+
+GET     /admin/new                          Admin.form
+POST    /admin/new                          Admin.save
+
+GET     /admin/myPosts/{id}                 Admin.form
+GET     /admin/new                          Admin.form
+
+POST    /admin/myPosts/{id}                 Admin.save
+POST    /admin/new                          Admin.save

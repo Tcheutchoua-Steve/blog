@@ -1,0 +1,11 @@
+#{extends 'CRUD/layout.html' /}
+#{set title:messages.get('crud.list.title', type.name) /}
+
+
+#{crud.table fields:['content', 'post', 'author']}
+ #{crud.custom 'content'}
+  <a href="@{Comments.show(object.id)}">
+   ${object.content.length() > 50 ? object.content[0..50] + '…' : object.content}
+  </a>
+ #{/crud.custom}
+#{/crud.table}

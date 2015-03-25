@@ -1,0 +1,47 @@
+#{extends 'main.html' /}
+#{set title:'Home' /}
+
+<h1> An application will be here</h1>
+
+#{if b}
+    <div class="Blog">
+        <h2 class="blog-titile">
+            <a href="#">${b.title}</a>
+        </h2>
+        <span > ${b.content}  &nbsp;|&nbsp;
+        
+        <span> ${b.postedAt.format('dd MMM yy')}</span>
+    </div
+#{/if}
+
+#{list items:blg, as:'currentblog'}
+	<ul> 
+		<em> 
+			${currentblog.title} 
+		</em> 
+		&nbsp;|&nbsp;
+		<em> 
+			 ${currentblog.content} 
+		</em> 
+		&nbsp;|&nbsp;
+		${currentblog.postedAt} 
+	</ul>
+#{/list}
+
+#{if flash.error}
+    <p style="color:#c00">
+        ${flash.error}
+    </p>
+ #{/if}
+
+ <form action="@{Application.addEntry()}" method="POST">
+ 	<p> Enter title: &nbsp;
+    	 <input type="text" name="newTitle" />
+    </p>
+    Content:&nbsp;
+    <p>
+    	<textarea name="newContent"> </textarea>
+    </p>
+    
+     <input type="submit" value="Add Blog Entry!" />
+ </form>
